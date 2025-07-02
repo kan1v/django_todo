@@ -1,0 +1,165 @@
+/* Базовая настройка */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Контейнер задач */
+.task-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+/* Заголовки */
+h1, h2, h3 {
+    color: #343a40;
+}
+
+/* Список задач */
+.task-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background-color: #f1f3f5;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+
+.task-item:hover {
+    background-color: #e9ecef;
+}
+
+.task-item.completed {
+    text-decoration: line-through;
+    color: #6c757d;
+}
+
+/* Кнопки */
+.btn-custom {
+    background-color: #0d6efd;
+    color: white;
+    border-radius: 5px;
+    padding: 6px 12px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-custom:hover {
+    background-color: #0b5ed7;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #bb2d3b;
+}
+
+/* Форма задачи */
+.task-form input[type="text"],
+.task-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+}
+
+.task-form button {
+    width: 100%;
+}
+
+/* Сообщения */
+.alert {
+    font-size: 0.95rem;
+}
+
+
+/* Стили для ошибок формы */
+.errorlist {
+    color: #d93025;          /* Красный цвет для ошибок */
+    background: #fce8e6;     /* Светло-розовый фон */
+    border: 1px solid #d93025;
+    padding: 8px 12px;
+    margin-top: 5px;
+    border-radius: 4px;
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+.nonfield-errors {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Стили формы */
+form {
+    max-width: 500px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+form p {
+    margin-bottom: 18px;
+}
+
+form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+form input[type="text"],
+form input[type="datetime-local"],
+form textarea,
+form select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1.5px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+form input[type="text"]:focus,
+form input[type="datetime-local"]:focus,
+form textarea:focus,
+form select:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+/* Кнопка отправки */
+form button[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
