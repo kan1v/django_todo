@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ task.title }}{% endblock %}
+
+{% block content %}
+<h3>{{ task.title }}</h3>
+<p>{{ task.description|default:"Без описания" }}</p>
+<p><strong>Приоритет:</strong> {{ task.get_priority_display }}</p>
+<p><strong>Статус:</strong> {% if task.is_completed %}Выполнена{% else %}В процессе{% endif %}</p>
+<p><strong>Дедлайн:</strong> {{ task.due_date|date:"d.m.Y H:i" }}</p>
+
+{% endblock %}
