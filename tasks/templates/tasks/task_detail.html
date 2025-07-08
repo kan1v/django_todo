@@ -9,5 +9,7 @@
 <p><strong>Приоритет:</strong> {{ task.get_priority_display }}</p>
 <p><strong>Статус:</strong> {% if task.is_completed %}Выполнена{% else %}В процессе{% endif %}</p>
 <p><strong>Дедлайн:</strong> {{ task.due_date|date:"d.m.Y H:i" }}</p>
+<a href="{% url 'tasks:task_complete' %}?task_slug={{ task.slug }}">Выполнить</a>
+
 
 {% endblock %}

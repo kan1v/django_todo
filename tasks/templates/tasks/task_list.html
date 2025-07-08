@@ -8,8 +8,9 @@
 {% if task_list %}
 <ul class="task-list">
     {% for task in task_list %}
+        {% if task.is_completed == False %}
     <li class="task-item">
-        <h3><a href="{% url 'tasks:task_detail' task.id %}" class="title-task-list">{{ task.title }}</a></h3>
+        <h3><a href="{% url 'tasks:task_detail' task.slug %}" class="title-task-list">{{ task.title }}</a></h3>
         <p>{{ task.description|default:"Без описания" }}</p>
         <p><strong>Приоритет:</strong> {{ task.get_priority_display }}</p>
         <p><strong>Статус:</strong> {% if task.is_completed %}Выполнена{% else %}В процессе{% endif %}</p>
@@ -17,26 +18,30 @@
 
         <!-- Пример кнопок -->
         <div class="task-actions">
-            <a href="#">Редактировать</a> |
-            <form action="{% url 'tasks:task_delete' task.id %}" method="post" style="display:inline;">
+            <form action="{% url 'tasks:task_edit' task.slug %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger btn-sm">Редактировать</button>
+                </form> |
+            <form action="{% url 'tasks:task_delete' task.slug %}" method="post" style="display:inline;">
                 {% csrf_token %}
                 <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
             </form>
         </div>
     </li>
+    {% endif %}
     {% endfor %}
+    
 
 
     {% else %}
     <p>У вас пока нет задач.</p>
     {% endif %}
-
     <h1>Выполненные задачи</h1>
     {% if completed_tasks %}
     <ul class="task-list">
         {% for task in completed_tasks %}
         <li class="task-item">
-            <h3>{{ task.title }}</h3>
+            <h3><a href="{% url 'tasks:task_detail' task.slug %}" class="title-task-list">{{ task.title }}</a></h3>
             <p>{{ task.description|default:'Без описания' }}</p>
             <p><strong>Приоритет:</strong> {{ task.get_priority_display }}</p>
             <p><strong>Статус:</strong> {% if task.is_completed %}Выполнена{% else %}В процессе{% endif %}</p>
@@ -44,8 +49,11 @@
 
             <!-- Пример кнопок -->
             <div class="task-actions">
-                <a href="#">Редактировать</a> |
-                <form action="{% url 'tasks:task_delete' task.id %}" method="post" style="display:inline;">
+                <form action="{% url 'tasks:task_edit' task.slug %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger btn-sm">Редактировать</button>
+                </form> |
+                <form action="{% url 'tasks:task_delete' task.slug %}" method="post" style="display:inline;">
                     {% csrf_token %}
                     <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
                 </form>
@@ -57,5 +65,4 @@
     {% else %}
     <p>Нету выполненных задач</p>
     {% endif %}
-
     {% endblock %}

@@ -8,6 +8,8 @@ urlpatterns = [
     path('about/', views.about_page, name='about'),
     path('task-list/', views.tasks_list, name='task_list'),
     path('task_form/', views.task_form, name='task_form'),
-    path('task/<int:pk>/delete', views.task_delete, name='task_delete'),
-    path('task-list/task-detail/<int:pk>/', views.task_detail, name='task_detail'),
+    path('task/<slug:slug>/edit', views.task_edit, name='task_edit'),
+    path('task/<slug:slug>/delete', views.task_delete, name='task_delete'),
+    path('task/complete/', views.task_complete, name='task_complete'),
+    path('task-list/task-detail/<slug:slug>/', views.task_detail, name='task_detail'),
 ]

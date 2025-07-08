@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}Вы успешно удалили задачу{% endblock %}
+
+{% block content %}
+
+<h1>Вы успешно удалили задачу</h1>
+<p>Задача {{ task.title }} была успешно удалена. <a href="{% url 'tasks:task_list' %}">Вернуться к задачам</a></p>
+
+{% endblock %}
